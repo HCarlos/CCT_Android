@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:padding="16dp"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_logo_uipe_round"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:gravity="left"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:maxLines="40"
+                android:lines="16"
+                android:textColor="@color/colorBlanco"
+                android:text="Bienvenido a Cero Corrupción Tabasco. A través de este medio podrás denunciar de manera fácil y rápida actos de corrupción de servidores públicos estatales y municipales.n\n\n\La Unidad de Inteligencia Patrimonial y Económica de Tabasco pone a tu disposición esta app para que nos hagas saber la posible comisión de actos indebidos. Gracias por tu participación."
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textSize="20sp"
+                android:justificationMode="inter_word"
+                />
+
+
+            <Button
+                android:id="@+id/btnIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ENTRAR"
+                android:background="@color/colorBlanco"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C0916D</color>
+    <color name="colorPrimaryDark">#865B39</color>
+    <color name="colorAccent">#831515</color>
+    <color name="colorTizne">#181616</color>
+    <color name="colorPerla">#F3E4AF</color>
+    <color name="colorBlanco">#F3F0E6</color>
+    <color name="colorToolBar">#C0916D</color>
+    <color name="colorVerdeMorena">#196457</color>
+</resources>

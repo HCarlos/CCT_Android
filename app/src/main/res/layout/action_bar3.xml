@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorToolBar"
+    app:popupTheme="@style/AppTheme.AppBarOverlay"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlanco"
+        android:text=""
+        android:layout_gravity="left"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        >
+
+        <ImageView
+            android:id="@+id/btnViewFiles"
+            android:layout_width="32sp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_attach_file_white_24dp"
+            android:paddingRight="8sp"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:textColor="#ffffff"
+            />
+
+    </LinearLayout>
+</androidx.appcompat.widget.Toolbar>

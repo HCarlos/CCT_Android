@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="@drawable/rectangulo_view"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccione una opción"
+        android:textAlignment="center"
+        android:background="@drawable/rectangulo_view"
+        />
+
+    <Button
+        android:id="@+id/btnTomarFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tomar foto"
+        android:background="@drawable/rectangulo_view"
+        />
+
+    <Button
+        android:id="@+id/btnSeleccionarFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar foto"
+        android:background="@drawable/rectangulo_view"
+        />
+
+    <Button
+        android:id="@+id/btnCapturarVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Grabar Video"
+        android:background="@drawable/rectangulo_view"
+        />
+
+    <Button
+        android:id="@+id/btnSeleccionarVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Video"
+        android:background="@drawable/rectangulo_view"
+        />
+
+    <Button
+        android:id="@+id/btnSeleccionarAudio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Audio"
+        android:background="@drawable/rectangulo_view"
+        />
+
+    <Button
+        android:id="@+id/btnSeleccionarArchivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar (PDF, Word, Excel, PPT, TXT, ZIP)"
+        android:background="@drawable/rectangulo_view"
+        />
+
+</LinearLayout>

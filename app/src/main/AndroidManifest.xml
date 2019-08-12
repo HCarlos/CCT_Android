@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tabascoweb.cerocorrupciontabasco">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-permission android:name="com.tabascoweb.cerocorrupciontabasco.permission.C2D_MESSAGE" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <application
+        android:name=".Connections.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.AcercaDeActivity"
+            android:label="@string/ta_acerca_de"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.AvisoDePrivacidadActivity"
+            android:label="@string/ta_aviso_de_privacidad"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.DenunciaActivity"
+            android:label="@string/menu_denuncia"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.MisDenunciasActivity"
+            android:label="@string/menu_mis_denuncias"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.MiDenunciaActivity"
+            android:label="Denuncia"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.Activitys.MisDenunciasActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.Activitys.MisDenunciasActivity" />
+        </activity>
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.MisArchivosActivity"
+            android:label="Mis Archivos"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.Activitys.MiDenunciaActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.Activitys.MiDenunciaActivity" />
+        </activity>
+
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.VerVideoActivity"
+            android:label="Mis Archivos"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.Activitys.MisArchivosActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.Activitys.MisArchivosActivity" />
+        </activity>
+
+        <activity
+            android:name="com.tabascoweb.cerocorrupciontabasco.Activitys.WebViewActivity"
+            android:label="Mis Archivos"
+            android:parentActivityName="com.tabascoweb.cerocorrupciontabasco.Activitys.MisArchivosActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tabascoweb.cerocorrupciontabasco.Activitys.MisArchivosActivity" />
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.Classes.GenericFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

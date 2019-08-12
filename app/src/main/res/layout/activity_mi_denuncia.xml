@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.MiDenunciaActivity"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:name=".PointsScreen"
+    app:popupTheme="@style/AppTheme.PopupOverlay"
+    android:background="@drawable/retina_display_1242x2208"
+    >
+
+    <include android:id="@+id/ActionBar3" layout="@layout/action_bar3" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent"
+        android:padding="8dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tvTipoGobierno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTizne"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/tvMunicipio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTizne"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/tvDependencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTizne"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/tvArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTizne"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:paddingTop="5dip"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@color/colorTizne"
+                />
+
+            <TextView
+                android:paddingTop="5dip"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/colorTizne"
+                />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/fecha_registro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Fecha de Registro"
+                    android:hint="Fecha de Registro"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textIsSelectable="false"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:textColor="@color/colorTizne"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/fecha_denuncia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Fecha en que ocurrieron los hechos"
+                    android:hint="Fecha en que ocurrieron los hechos"
+                    android:textIsSelectable="false"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorTizne"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/estatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Estatus de la Denuncia"
+                    android:hint="Estatus de la Denuncia"
+                    android:textIsSelectable="false"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorVerdeMorena"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/tipo_denuncia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Tipo de Denuncia"
+                    android:hint="Tipo de Denuncia"
+                    android:textIsSelectable="false"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorTizne"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/llTipoDenuncia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <EditText
+                        android:id="@+id/nombre_completo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="Nombre Denunciante"
+                        android:hint="Nombre Denunciante"
+                        android:textIsSelectable="false"
+                        android:inputType="none"
+                        android:focusableInTouchMode="false"
+                        android:cursorVisible="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorTizne"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <EditText
+                        android:id="@+id/correo_electronico"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="Correo Electrónico"
+                        android:hint="Correo Electrónico"
+                        android:textIsSelectable="false"
+                        android:inputType="none"
+                        android:focusableInTouchMode="false"
+                        android:cursorVisible="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorTizne"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <EditText
+                        android:id="@+id/celular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="Celular"
+                        android:hint="Celular"
+                        android:textIsSelectable="false"
+                        android:inputType="none"
+                        android:focusableInTouchMode="false"
+                        android:cursorVisible="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorTizne"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/lugar_denuncia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Lugar en que ocurrieron los hechos"
+                    android:hint="Lugar en que ocurrieron los hechos"
+                    android:textIsSelectable="false"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:maxLines="10"
+                    android:singleLine="false"
+                    android:textColor="@color/colorTizne"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/denuncia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Denuncia"
+                    android:hint="Denuncia"
+                    android:textIsSelectable="false"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:maxLines="30"
+                    android:singleLine="false"
+                    android:textColor="@color/colorTizne"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

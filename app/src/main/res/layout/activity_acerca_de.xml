@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    tools:context=".Activitys.AcercaDeActivity"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:name=".PointsScreen"
+    app:popupTheme="@style/AppTheme.PopupOverlay"
+    android:background="@drawable/retina_display_1242x2208"
+    >
+
+    <include android:id="@+id/ActionBar" layout="@layout/action_bar" />
+
+    <WebView
+        android:id="@+id/webViewAD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_vertical"
+        android:animateLayoutChanges="true"
+        android:padding="16sp"
+        tools:ignore="MissingConstraints">
+    </WebView>
+
+</LinearLayout>

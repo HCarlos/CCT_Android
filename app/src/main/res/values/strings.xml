@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Cero Corrupción Tabasco</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_denuncia">Denuncias</string>
+    <string name="menu_mis_denuncias">Mis Denuncias</string>
+    <string name="ta_acerca_de">Acerca de</string>
+    <string name="ta_aviso_de_privacidad">Aviso de Privacidad</string>
+    <string name="dependencia">(*) Dependencia:</string>
+    <string name="area">Area:</string>
+    <string name="apellido_paterno">Apellido Paterno</string>
+    <string name="apellido_materno">Apellido Materno</string>
+    <string name="nombre">Nombre</string>
+    <string name="celular">Celular</string>
+    <string name="email">Email</string>
+    <string name="fecha">Fecha</string>
+    <string name="hora">Hora</string>
+    <string name="d_nde_ocurrieron_los_hechos">(*) ¿Dónde ocurrieron los hechos?</string>
+    <string name="escribe_tu_denuncia">(*) Escribe tu denuncia</string>
+    <string name="archivo">Archivo</string>
+    <string name="opciones">Opciones</string>
+    <string name="imagen">Imagen</string>
+    <string name="enviar_denuncia">Enviar Denuncia</string>
+
+
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+</resources>
