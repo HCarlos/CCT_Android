@@ -1,15 +1,24 @@
 package com.tabascoweb.cerocorrupciontabasco;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
+import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.tabascoweb.cerocorrupciontabasco.Activitys.AcercaDeActivity;
@@ -18,6 +27,7 @@ import com.tabascoweb.cerocorrupciontabasco.Activitys.AvisoDePrivacidadActivity;
 
 import com.tabascoweb.cerocorrupciontabasco.Activitys.DenunciaActivity;
 import com.tabascoweb.cerocorrupciontabasco.Activitys.MisDenunciasActivity;
+import com.tabascoweb.cerocorrupciontabasco.Classes.PhotoUtils;
 import com.tabascoweb.cerocorrupciontabasco.Classes.Singleton;
 import com.tabascoweb.cerocorrupciontabasco.Classes.Utilidades;
 import com.google.android.material.navigation.NavigationView;
@@ -32,16 +42,27 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.IOException;
+
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.ACCESS_NETWORK_STATE;
+import static android.Manifest.permission.CAMERA;
+import static android.Manifest.permission.INTERNET;
+import static android.Manifest.permission.MANAGE_DOCUMENTS;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.RECORD_AUDIO;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     private Singleton Singleton;
     private Activity activity;
     private Context context;
-    
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -85,13 +106,16 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
         Utilidades.GetCamera(this,0);
         if ( Singleton.isIsCameraPresent() ){
-            LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-            try {
-                Utilidades.GetGPS(this, lm, 0);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
+
+        LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        try {
+            Utilidades.GetGPS(this, lm, 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        checkPermissions();
 
         if (Singleton.IsInit() ){
             showDialog(activity);
@@ -116,17 +140,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        int id = item.getItemId();
-//
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -176,7 +189,39 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     }
 
+    public void checkPermissions(){
+        if(ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA)==PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), INTERNET)==PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_NETWORK_STATE)==PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), MANAGE_DOCUMENTS)==PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(getApplicationContext(), RECORD_AUDIO)==PackageManager.PERMISSION_GRANTED
+        ){
+            //Do_SOme_Operation();
+        }else{
+            requestStoragePermission();
+        }
+    }
 
+    public void requestStoragePermission(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            ActivityCompat.requestPermissions(this
+                    ,new String[]{INTERNET, CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION, ACCESS_NETWORK_STATE, MANAGE_DOCUMENTS, RECORD_AUDIO},1234);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 1234:if(grantResults[0]==PackageManager.PERMISSION_GRANTED && grantResults[1]==PackageManager.PERMISSION_GRANTED){
+                // Do_SOme_Operation();
+            }
+            default:super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        }
+    }
 
 
 

@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -20,6 +22,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -58,8 +61,19 @@ import com.tabascoweb.cerocorrupciontabasco.Classes.Singleton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Objects;
+
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.ACCESS_NETWORK_STATE;
+import static android.Manifest.permission.CAMERA;
+import static android.Manifest.permission.INTERNET;
+import static android.Manifest.permission.MANAGE_DOCUMENTS;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.RECORD_AUDIO;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class DenunciaActivity extends AppCompatActivity implements AsyncTaskListener, VolleyTaskListener, BottomSheetDialog.BottomSheetListener {
     private static final String TAG = "RESPUESTA";
@@ -150,10 +164,14 @@ public class DenunciaActivity extends AppCompatActivity implements AsyncTaskList
         activity = this;
         context = this;
 
-        PhotoUtils.chechPermission1(this);
-        PhotoUtils.chechPermission2(this);
-        PhotoUtils.chechPermission3(this);
-        PhotoUtils.chechPermission4(this);
+        checkPermissions();
+
+        LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        try {
+            Utilidades.GetGPS(this, lm, 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         LLAnonimous = (LinearLayout) findViewById(R.id.ll_denuncia_personal);
         if (Singleton.getIdTipoDenuncia()==1){
@@ -765,9 +783,13 @@ public class DenunciaActivity extends AppCompatActivity implements AsyncTaskList
         filenameArchivoSel.setText(Utilidades.getFilenameFromUri(activity,Archivo));
     }
 
+
+/*
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        Log.e("PERMISO: ", String.valueOf(requestCode));
+        Log.e("PERMISO DENUNCIA: ", String.valueOf(requestCode));
         switch (requestCode){
             case PERMISSION_CODE:
             case PERMISSION_CODE_2:
@@ -821,6 +843,7 @@ public class DenunciaActivity extends AppCompatActivity implements AsyncTaskList
         }
     }
 
+*/
 
 // *******************************************************************************************
 // *******************************************************************************************
@@ -855,4 +878,46 @@ public class DenunciaActivity extends AppCompatActivity implements AsyncTaskList
         startActivity(intent);
         finish();
     }
+
+
+
+    public void checkPermissions(){
+        if(ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA)==PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), INTERNET)==PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_NETWORK_STATE)==PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), MANAGE_DOCUMENTS)==PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(getApplicationContext(), RECORD_AUDIO)==PackageManager.PERMISSION_GRANTED
+        ){
+            //Do_SOme_Operation();
+        }else{
+            requestStoragePermission();
+        }
+    }
+
+    public void requestStoragePermission(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            ActivityCompat.requestPermissions(this
+                    ,new String[]{INTERNET, CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION, ACCESS_NETWORK_STATE, MANAGE_DOCUMENTS, RECORD_AUDIO},1234);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 1234:if(grantResults[0]==PackageManager.PERMISSION_GRANTED && grantResults[1]==PackageManager.PERMISSION_GRANTED){
+                // Do_SOme_Operation();
+            }
+            default:super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        }
+    }
+
+
+
+
+
+
 }

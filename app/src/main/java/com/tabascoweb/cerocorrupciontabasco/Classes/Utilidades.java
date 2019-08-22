@@ -154,7 +154,7 @@ public class Utilidades {
 
             Singleton.setLatitude(current_lattitude);
             Singleton.setLongitude(current_longitude);
-            Singleton.setLongitude(current_altitud);
+            Singleton.setAltitud(current_altitud);
 
             Singleton.setIsGPS(true);
 
@@ -265,15 +265,6 @@ public class Utilidades {
         return extension;
     }
 
-//    public static String getPhoneNumber(Context context) {
-//        TelephonyManager tMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-//        if (checkSelfPermission(Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-//            String mPhoneNumber = tMgr.getLine1Number();
-//            return mPhoneNumber;
-//        }
-//    }
-
-
     public static String getDeviceName() {
         String manufacturer = Build.MANUFACTURER;
         String model = Build.MODEL;
@@ -302,6 +293,8 @@ public class Utilidades {
         }
         return phrase;
     }
+
+
 
 
 

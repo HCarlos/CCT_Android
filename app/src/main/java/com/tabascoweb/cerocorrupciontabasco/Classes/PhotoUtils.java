@@ -186,14 +186,6 @@ public class PhotoUtils {
                 activity.requestPermissions(permission, PERMISSION_CODE);
             }
         }
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-            if (activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                retorno = false;
-                Toast.makeText(activity, "No ha autorizado utilizar la cámara ó guardar imaganes en su teléfono.", Toast.LENGTH_SHORT).show();
-                String[] permission = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                activity.requestPermissions(permission, PERMISSION_CODE_2);
-            }
-        }
         return  retorno;
     }
 
@@ -211,9 +203,6 @@ public class PhotoUtils {
         return  retorno;
     }
 
-
-
-
     public static Boolean chechPermission3(Activity _activity) {
         Boolean retorno = true;
         Activity activity = _activity;
@@ -228,10 +217,6 @@ public class PhotoUtils {
         }
         return  retorno;
     }
-
-
-
-
 
     public static Boolean chechPermission4(Activity _activity) {
         Boolean retorno = true;
@@ -253,7 +238,34 @@ public class PhotoUtils {
         return retorno;
     }
 
+    public static Boolean chechPermission5(Activity _activity) {
+        Boolean retorno = true;
+        Activity activity = _activity;
 
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            if (activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                retorno = false;
+                Toast.makeText(activity, "No ha autorizado utilizar la cámara ó guardar imaganes en su teléfono.", Toast.LENGTH_SHORT).show();
+                String[] permission = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                activity.requestPermissions(permission, PERMISSION_CODE_2);
+            }
+        }
+        return  retorno;
+    }
+
+    public static Boolean chechPermission6(Activity _activity) {
+        Boolean retorno = true;
+        Activity activity = _activity;
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            if (activity.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                retorno = false;
+                String[] permission = {Manifest.permission.READ_EXTERNAL_STORAGE};
+                activity.requestPermissions(permission, PERMISSION_CODE_GALLERY);
+            }
+        }
+        return  retorno;
+    }
 
 
 
